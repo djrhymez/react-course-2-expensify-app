@@ -12,11 +12,11 @@ exports[`should render ExpenseList item from json object 1`] = `
   </Link>
   <p>
     Amount: 
-    195
+    $1.95
   </p>
   <p>
     Created At: 
-    0
+    December 31st, 1969
   </p>
 </div>
 `;
