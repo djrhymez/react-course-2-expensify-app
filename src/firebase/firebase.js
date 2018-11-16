@@ -38,19 +38,19 @@ export { firebase, database as default };
 // //     console.log(expenses);
 // //   });
 
-// // database.ref('expenses')
-// //   .once('value')
-// //   .then((snapshot) => {
-// //     const expenses = [];
-// //     snapshot.forEach((childSnapshot) => {
-// //       expenses.push({
-// //         id: childSnapshot.key,
-// //         ...childSnapshot.val()
-// //       });
-// //     });
+// database.ref('expenses')
+//   .once('value')
+//   .then((snapshot) => {
+//     const expenses = [];
+//     snapshot.forEach((childSnapshot) => {
+//       expenses.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val()
+//       });
+//     });
 
-// //     console.log(expenses);
-// //   });
+//     console.log(expenses);
+//   });
   
 // // database.ref('expenses').push({
 // //   description: 'Rent',
