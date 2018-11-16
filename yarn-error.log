@@ -1,20 +1,17 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\daniel.Reimer\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add numeral@2.0.6
+  /usr/bin/nodejs /usr/bin/yarn install --ignore-engines
 
 PATH: 
-  C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\OpenVPN\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Amazon\AWSCLI\bin\;C:\Program Files\nodejs\;C:\Users\daniel.Reimer\.windows-build-tools\python27\;C:\Program Files\nodejs\node_modules\npm\node_modules\npm-lifecycle\node-gyp-bin;C:\Users\daniel.Reimer\AppData\Roaming\npm\node_modules\windows-build-tools\node_modules\.bin;C:\Users\daniel.Reimer\AppData\Roaming\npm\node_modules\.bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\ManagementStudio\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\php;C:\ProgramData\ComposerSetup\bin;C:\Program Files\OpenVPN\bin;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Amazon\AWSCLI\bin\;C:\Program Files\nodejs\;C:\Users\daniel.Reimer\AppData\Local\Microsoft\WindowsApps;C:\Users\daniel.Reimer\AppData\Local\atom\bin;C:\Users\daniel.Reimer\AppData\Roaming\Composer\vendor\bin;C:\Users\daniel.Reimer\AppData\Local\Microsoft\WindowsApps;C:\Users\daniel.Reimer\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\daniel.Reimer\AppData\Roaming\npm
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/heroku/bin:/mnt/c/Users/daniel.Reimer/AppData/Local/Yarn/bin:/mnt/c/Program Files/Git/bin:/mnt/c/Program Files (x86)/Yarn/bin:/mnt/c/Program Files/nodejs/node_modules/npm/bin:/mnt/c/Program Files/heroku/bin:/mnt/c/Users/daniel.Reimer/AppData/Local/Yarn/bin:/mnt/c/Program Files/nodejs/node_modules/npm/bin:/mnt/c/Program Files/Git/bin
 
 Yarn version: 
-  1.10.1
+  0.27.3
 
 Node version: 
-  11.0.0
+  4.7.2
 
 Platform: 
-  win32 x64
-
-Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\Users\daniel.Reimer\Desktop\React Course Projects\expensify-app\node_modules\acorn-globals\node_modules\.bin'
+  linux x64
 
 npm manifest: 
   {
@@ -27,7 +24,7 @@ npm manifest:
       "build:dev": "webpack",
       "build:prod": "webpack -p --env production",
       "dev-server": "webpack-dev-server",
-      "test": "jest --config=jest.config.json",
+      "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
       "start": "node server/server.js",
       "heroku-postbuild": "yarn run build:prod"
     },
@@ -39,14 +36,16 @@ npm manifest:
       "babel-plugin-transform-object-rest-spread": "6.23.0",
       "babel-preset-env": "1.5.2",
       "babel-preset-react": "6.24.1",
-      "cryptiles": "4.1.2",
+      "cryptiles": "3.1.1",
       "css-loader": "0.28.4",
       "express": "4.15.4",
       "extract-text-webpack-plugin": "3.0.0",
+      "firebase": "4.2.0",
       "hoek": "4.2.1",
       "moment": "2.18.1",
       "node-sass": "^4.5.3",
       "normalize.css": "^7.0.0",
+      "numeral": "^2.0.6",
       "raf": "3.3.2",
       "react": "16.0.0",
       "react-addons-shallow-compare": "15.6.0",
@@ -56,6 +55,7 @@ npm manifest:
       "react-redux": "5.0.5",
       "react-router-dom": "4.2.2",
       "redux": "3.7.2",
+      "redux-thunk": "^2.2.0",
       "request": "^2.81.0",
       "sass-loader": "6.0.6",
       "style-loader": "0.18.2",
@@ -67,14 +67,8 @@ npm manifest:
       "enzyme": "3.0.0",
       "enzyme-adapter-react-16": "1.0.0",
       "enzyme-to-json": "3.0.1",
-      "eslint": "^5.8.0",
       "jest": "20.0.4",
       "react-test-renderer": "16.0.0",
-      "eslint-config-standard": "^12.0.0",
-      "eslint-plugin-import": "^2.14.0",
-      "eslint-plugin-node": "^8.0.0",
-      "eslint-plugin-promise": "^4.0.1",
-      "eslint-plugin-standard": "^4.0.0",
       "webpack-dev-server": "2.5.1"
     }
   }
@@ -1417,6 +1411,11 @@ Lockfile:
     dependencies:
       node-int64 "^0.4.0"
   
+  buffer-equal-constant-time@1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/buffer-equal-constant-time/-/buffer-equal-constant-time-1.0.1.tgz#f8e71132f7ffe6e01a5c9697a4c6f3e48d5cc819"
+    integrity sha1-+OcRMvf/5uAaXJaXpMbz5I1cyBk=
+  
   buffer-indexof@^1.0.0:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/buffer-indexof/-/buffer-indexof-1.1.1.tgz#52fabcc6a606d1a00302802648ef68f639da268c"
@@ -2369,6 +2368,11 @@ Lockfile:
       domelementtype "~1.1.1"
       entities "~1.1.1"
   
+  dom-storage@^2.0.2:
+    version "2.1.0"
+    resolved "https://registry.yarnpkg.com/dom-storage/-/dom-storage-2.1.0.tgz#00fb868bc9201357ea243c7bcfd3304c1e34ea39"
+    integrity sha512-g6RpyWXzl0RR6OTElHKBl7nwnK87GUyZMYC7JWsB/IA73vpqK2K6LT39x4VepLxlSsWBFrPVLnsSR5Jyty0+2Q==
+  
   domain-browser@^1.1.1:
     version "1.2.0"
     resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -2419,6 +2423,13 @@ Lockfile:
     dependencies:
       jsbn "~0.1.0"
       safer-buffer "^2.1.0"
+  
+  ecdsa-sig-formatter@1.0.10:
+    version "1.0.10"
+    resolved "https://registry.yarnpkg.com/ecdsa-sig-formatter/-/ecdsa-sig-formatter-1.0.10.tgz#1c595000f04a8897dfb85000892a0f4c33af86c3"
+    integrity sha1-HFlQAPBKiJffuFAAiSoPTDOvhsM=
+    dependencies:
+      safe-buffer "^5.0.1"
   
   ee-first@1.1.1:
     version "1.1.1"
@@ -3068,6 +3079,13 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
     integrity sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==
   
+  faye-websocket@0.9.3:
+    version "0.9.3"
+    resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.9.3.tgz#482a505b0df0ae626b969866d3bd740cdb962e83"
+    integrity sha1-SCpQWw3wrmJrlphm0710DNuWLoM=
+    dependencies:
+      websocket-driver ">=0.5.1"
+  
   faye-websocket@^0.10.0:
     version "0.10.0"
     resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.10.0.tgz#4e492f8d04dfb6f89003507f6edbf2d501e7c6f4"
@@ -3207,6 +3225,17 @@ Lockfile:
     integrity sha1-RdG35QbHF93UgndaK3eSCjwMV6c=
     dependencies:
       locate-path "^2.0.0"
+  
+  firebase@4.2.0:
+    version "4.2.0"
+    resolved "https://registry.yarnpkg.com/firebase/-/firebase-4.2.0.tgz#9181a0a22c6afc2b27bd810789beac48a438207d"
+    integrity sha1-kYGgoixq/CsnvYEHib6sSKQ4IH0=
+    dependencies:
+      dom-storage "^2.0.2"
+      faye-websocket "0.9.3"
+      jsonwebtoken "^7.3.0"
+      promise-polyfill "^6.0.2"
+      xmlhttprequest "^1.8.0"
   
   flat-cache@^1.2.1:
     version "1.3.0"
@@ -3603,6 +3632,11 @@ Lockfile:
       hash.js "^1.0.3"
       minimalistic-assert "^1.0.0"
       minimalistic-crypto-utils "^1.0.1"
+  
+  hoek@2.x.x:
+    version "2.16.3"
+    resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
+    integrity sha1-ILt0A9POo5jpHcRxCo/xuCdKJe0=
   
   hoek@4.2.1:
     version "4.2.1"
@@ -4182,6 +4216,11 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
     integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
   
+  isemail@1.x.x:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/isemail/-/isemail-1.2.0.tgz#be03df8cc3e29de4d2c5df6501263f1fa4595e9a"
+    integrity sha1-vgPfjMPineTSxd9lASY/H6RZXpo=
+  
   isexe@^2.0.0:
     version "2.0.0"
     resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
@@ -4514,6 +4553,16 @@ Lockfile:
     dependencies:
       jest-cli "^20.0.4"
   
+  joi@^6.10.1:
+    version "6.10.1"
+    resolved "https://registry.yarnpkg.com/joi/-/joi-6.10.1.tgz#4d50c318079122000fe5f16af1ff8e1917b77e06"
+    integrity sha1-TVDDGAeRIgAP5fFq8f+OGRe3fgY=
+    dependencies:
+      hoek "2.x.x"
+      isemail "1.x.x"
+      moment "2.x.x"
+      topo "1.x.x"
+  
   js-base64@^2.1.8, js-base64@^2.1.9:
     version "2.4.9"
     resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.9.tgz#748911fb04f48a60c4771b375cac45a80df11c03"
@@ -4637,6 +4686,17 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
     integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
   
+  jsonwebtoken@^7.3.0:
+    version "7.4.3"
+    resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-7.4.3.tgz#77f5021de058b605a1783fa1283e99812e645638"
+    integrity sha1-d/UCHeBYtgWheD+hKD6ZgS5kVjg=
+    dependencies:
+      joi "^6.10.1"
+      jws "^3.1.4"
+      lodash.once "^4.0.0"
+      ms "^2.0.0"
+      xtend "^4.0.1"
+  
   jsprim@^1.2.2:
     version "1.4.1"
     resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-1.4.1.tgz#313e66bc1e5cc06e438bc1b7499c2e5c56acb6a2"
@@ -4646,6 +4706,23 @@ Lockfile:
       extsprintf "1.3.0"
       json-schema "0.2.3"
       verror "1.10.0"
+  
+  jwa@^1.1.5:
+    version "1.1.6"
+    resolved "https://registry.yarnpkg.com/jwa/-/jwa-1.1.6.tgz#87240e76c9808dbde18783cf2264ef4929ee50e6"
+    integrity sha512-tBO/cf++BUsJkYql/kBbJroKOgHWEigTKBAjjBEmrMGYd1QMBC74Hr4Wo2zCZw6ZrVhlJPvoMrkcOnlWR/DJfw==
+    dependencies:
+      buffer-equal-constant-time "1.0.1"
+      ecdsa-sig-formatter "1.0.10"
+      safe-buffer "^5.0.1"
+  
+  jws@^3.1.4:
+    version "3.1.5"
+    resolved "https://registry.yarnpkg.com/jws/-/jws-3.1.5.tgz#80d12d05b293d1e841e7cb8b4e69e561adcf834f"
+    integrity sha512-GsCSexFADNQUr8T5HPJvayTjvPIfoyJPtLQBwn5a4WZQchcrPMPMAWcC1AzJVRDKyD6ZPROPAxgv6rfHViO4uQ==
+    dependencies:
+      jwa "^1.1.5"
+      safe-buffer "^5.0.1"
   
   kind-of@^2.0.1:
     version "2.0.1"
@@ -4790,6 +4867,11 @@ Lockfile:
     version "4.6.1"
     resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
     integrity sha512-eWw5r+PYICtEBgrBE5hhlT6aAa75f411bgDz/ZL2KZqYV03USvucsxcHUIlGTDTECs1eunpI7HOV7U+WLDvNdQ==
+  
+  lodash.once@^4.0.0:
+    version "4.1.1"
+    resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
+    integrity sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=
   
   lodash.tail@^4.1.1:
     version "4.1.1"
@@ -5081,7 +5163,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
     integrity sha1-w2GT3Tzhwu7SrbfIAtu8d6gbHA8=
   
-  moment@>=1.6.0:
+  moment@2.x.x, moment@>=1.6.0:
     version "2.22.2"
     resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
     integrity sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=
@@ -5096,7 +5178,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
     integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
   
-  ms@^2.1.1:
+  ms@^2.0.0, ms@^2.1.1:
     version "2.1.1"
     resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
     integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
@@ -5401,6 +5483,11 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
     integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
+  
+  numeral@^2.0.6:
+    version "2.0.6"
+    resolved "https://registry.yarnpkg.com/numeral/-/numeral-2.0.6.tgz#4ad080936d443c2561aed9f2197efffe25f4e506"
+    integrity sha1-StCAk21EPCVhrtnyGX7//iX05QY=
   
   "nwmatcher@>= 1.3.9 < 2.0.0":
     version "1.4.4"
@@ -6134,6 +6221,11 @@ Lockfile:
     version "2.0.1"
     resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.1.tgz#c9242169342b1c29d275889c95734621b1952e31"
     integrity sha512-OE+a6vzqazc+K6LxJrX5UPyKFvGnL5CYmq2jFGNIBWHpc4QyE49/YOumcrpQFJpfejmvRtbJzgO1zPmMCqlbBg==
+  
+  promise-polyfill@^6.0.2:
+    version "6.1.0"
+    resolved "https://registry.yarnpkg.com/promise-polyfill/-/promise-polyfill-6.1.0.tgz#dfa96943ea9c121fca4de9b5868cb39d3472e057"
+    integrity sha1-36lpQ+qcEh/KTem1hoyznTRy4Fc=
   
   promise@^7.1.1:
     version "7.3.1"
@@ -7523,6 +7615,13 @@ Lockfile:
       regex-not "^1.0.2"
       safe-regex "^1.1.0"
   
+  topo@1.x.x:
+    version "1.1.0"
+    resolved "https://registry.yarnpkg.com/topo/-/topo-1.1.0.tgz#e9d751615d1bb87dc865db182fa1ca0a5ef536d5"
+    integrity sha1-6ddRYV0buH3IZdsYL6HKCl71NtU=
+    dependencies:
+      hoek "2.x.x"
+  
   tough-cookie@^2.3.2, tough-cookie@~2.4.3:
     version "2.4.3"
     resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.4.3.tgz#53f36da3f47783b0925afa06ff9f3b165280f781"
@@ -8038,7 +8137,12 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-2.0.1.tgz#4d8b8f1eccd3419aa362061becef515e1e559635"
     integrity sha1-TYuPHszTQZqjYgYb7O9RXh5VljU=
   
-  xtend@^4.0.0:
+  xmlhttprequest@^1.8.0:
+    version "1.8.0"
+    resolved "https://registry.yarnpkg.com/xmlhttprequest/-/xmlhttprequest-1.8.0.tgz#67fe075c5c24fef39f9d65f5f7b7fe75171968fc"
+    integrity sha1-Z/4HXFwk/vOfnWX197f+dRcZaPw=
+  
+  xtend@^4.0.0, xtend@^4.0.1:
     version "4.0.1"
     resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
     integrity sha1-pcbVMr5lbiPbgg77lDofBJmNY68=
@@ -8119,3 +8223,7 @@ Lockfile:
       cliui "^2.1.0"
       decamelize "^1.0.0"
       window-size "0.1.0"
+
+Trace: 
+  Error: ENOENT: no such file or directory, utime '/mnt/c/Users/daniel.Reimer/Desktop/React Course Projects/expensify-app/node_modules/fbjs/lib/camelize.js'
+      at Error (native)
